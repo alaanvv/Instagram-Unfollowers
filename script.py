@@ -36,16 +36,16 @@ for follower in profile.get_followers():
 # Reading the file before writing
 
 try:
-    file_list = open('cache/follower.txt', 'r').readlines()
+    file_list = open('follower.txt', 'r').readlines()
 
 except:
-    file = open('cache/follower.txt', 'w')
-    file_list = open('cache/follower.txt', 'r').readlines()
+    file = open('follower.txt', 'w')
+    file_list = open('follower.txt', 'r').readlines()
 
 # ---
 # Writing the new followers list to the file
 
-file = open('cache/follower.txt', 'w')
+file = open('follower.txt', 'w')
 
 for line in follower_list:
     file.write(line)
@@ -64,3 +64,5 @@ else:
     print('Unfollowers:\n')
     for unf in unfollowers:
         print('>', unf)
+
+input('ENTER')
