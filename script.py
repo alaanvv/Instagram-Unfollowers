@@ -24,30 +24,30 @@ login()
 profile = instaloader.Profile.from_username(insta.context, user)
 
 # ---
-# Reading the actual followees in a list
+# Reading the actual followers in a list
 
-followee_list = []
+follower_list = []
 
-for followee in profile.get_followers():
+for follower in profile.get_followers():
 
-    followee_list.append(followee.username + '\n')
+    follower_list.append(follower.username + '\n')
 
 # ---
 # Reading the file before writing
 
 try:
-    file_list = open('cache/followee.txt', 'r').readlines()
+    file_list = open('cache/follower.txt', 'r').readlines()
 
 except:
-    file = open('cache/followee.txt', 'w')
-    file_list = open('cache/followee.txt', 'r').readlines()
+    file = open('cache/follower.txt', 'w')
+    file_list = open('cache/follower.txt', 'r').readlines()
 
 # ---
-# Writing the new followees list to the file
+# Writing the new followers list to the file
 
-file = open('cache/followee.txt', 'w')
+file = open('cache/follower.txt', 'w')
 
-for line in followee_list:
+for line in follower_list:
     file.write(line)
 
 file.close()
@@ -55,12 +55,12 @@ file.close()
 # ---
 # Comparing the lists
 
-unfollowees = list(set(file_list) - set(followee_list)) # Getting elements that arent in the new list
+unfollowers = list(set(file_list) - set(follower_list)) # Getting elements that arent in the new list
 
-if unfollowees == []:
-    print('No unfollowees')
+if unfollowers == []:
+    print('No unfollowers')
 
 else: 
-    print('Unfollowees:\n')
-    for unf in unfollowees:
+    print('Unfollowers:\n')
+    for unf in unfollowers:
         print('>', unf)
