@@ -1,2 +1,2 @@
-USER=seu_user
-PASSWORD=aus_hensa
+USER=your_user
+PASSWORD=yoss_uapwdror
