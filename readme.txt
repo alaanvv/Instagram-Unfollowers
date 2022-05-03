@@ -1,4 +1,4 @@
-Digite seu login em config.txt
+Login in config.txt
 
-O app não mostra novos seguidores, 
-o instagram já faz isso
+Dont shows new followers,
+instagram already does
