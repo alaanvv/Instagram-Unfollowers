@@ -1,4 +1,4 @@
 Login in config.txt
 
 Dont shows new followers,
-instagram already does
+instagram already does that
