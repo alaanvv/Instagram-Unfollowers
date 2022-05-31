@@ -1,18 +1,14 @@
-# Importing libs
-
 import instaloader
 
 # ---
-# Setup
 
 config = open('config.txt', 'r').readlines()
 user = config[0].split('=')[1].replace('\n', '')
 password = config[1].split('=')[1].replace('\n', '')
 
 # ---
-# Getting profile object
 
-insta = instaloader.Instaloader() # Instagram object
+insta = instaloader.Instaloader()
 
 def login(): # Login eventually takes a few tries to work
     try:
@@ -24,26 +20,17 @@ login()
 profile = instaloader.Profile.from_username(insta.context, user)
 
 # ---
-# Reading the actual followers in a list
 
-follower_list = []
-
-for follower in profile.get_followers():
-
-    follower_list.append(follower.username + '\n')
-
-# ---
-# Reading the file before writing
+follower_list = [follower + '\n' for follower in profile.get_followers()]
 
 try:
     file_list = open('follower.txt', 'r').readlines()
 
 except:
-    file = open('follower.txt', 'w')
-    file_list = open('follower.txt', 'r').readlines()
+    open('follower.txt', 'w')
+    file_list = []
 
 # ---
-# Writing the new followers list to the file
 
 file = open('follower.txt', 'w')
 
@@ -53,9 +40,8 @@ for line in follower_list:
 file.close()
 
 # ---
-# Comparing the lists
 
-unfollowers = list(set(file_list) - set(follower_list)) # Getting elements that arent in the new list
+unfollowers = list(set(file_list) - set(follower_list))
 
 if unfollowers == []:
     print('No unfollowers')
